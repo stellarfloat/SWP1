@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 n1, n2 = 0, 0
-html = f"""
+html = """
 <html>
     <body>
         <form action="">
@@ -13,8 +13,8 @@ html = f"""
             number2 = <input type="number" name="n2">  
             <input type="submit">
         </form>
-        sum = {n1 + n2}<br>
-        mul = {n1 * n2}
+        sum = {}<br>
+        mul = {}
     </body>
 </html>
 """
@@ -52,7 +52,7 @@ def application(environ, start_response):
     if '' not in [n1, n2]:
         try:
             n1, n2 = int(n1), int(n2)
-            response_body = html
+            response_body = html .format(n1+n2, n1*n2)
         except ValueError:
             error_msg = '잘못된 값이 입력되었습니다. 입력된 값이 숫자인지 다시 확인해보세요.'
             response_body = html_error .format(error_msg)
