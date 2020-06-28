@@ -1,10 +1,6 @@
 from cgi import parse_qs
-import matplotlib as mpl
-mpl.use('Agg')
-import matplotlib.pyplot as plt
 
 
-n1, n2 = 0, 0
 html = """
 <html>
     <body>
@@ -18,6 +14,7 @@ html = """
     </body>
 </html>
 """
+
 html_initial = """
 <html>
     <body>
@@ -30,6 +27,7 @@ html_initial = """
     </body>
 </html>
 """
+
 html_error = """
 <html>
     <body>
