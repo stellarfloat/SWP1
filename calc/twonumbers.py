@@ -18,6 +18,18 @@ html = f"""
     </body>
 </html>
 """
+html_initial = f"""
+<html>
+    <body>
+        <form action="">
+            number1 = <input type="number" name="n1">, 
+            number2 = <input type="number" name="n2">  
+            <input type="submit">
+        </form>
+        <br>값을 입력하세요.
+    </body>
+</html>
+"""
 
 
 
@@ -27,8 +39,10 @@ def application(environ, start_response):
     n2 = d.get('n2', [''])[0]
     if '' not in [n1, n2]:
         n1, n2 = int(n1), int(n2)
-
-    response_body = html
+        response_body = html
+    else:
+        response_body = html_initial
+    
     start_response('200 OK', [
         ('Content-Type', 'text/html'),
         ('Content-Length', str(len(response_body)))
